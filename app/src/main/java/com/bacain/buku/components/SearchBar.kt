@@ -8,9 +8,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bacain.buku.ui.theme.Shapes
+import com.bacain.buku.ui.theme.lexend
 import com.bacain.buku.ui.theme.text
 
 @Preview(showBackground = true)
@@ -59,7 +62,7 @@ fun SearchBar(
                 )
             },
             placeholder = {
-                Text(text = placeText, color = text)
+                Text(text = placeText, color = text, fontFamily = lexend)
             }
         )
     }
