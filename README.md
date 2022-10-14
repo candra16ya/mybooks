@@ -1,5 +1,5 @@
 # mybooks-project
 
-## Dependencies
+## Library 
 Image loader using coil
 https://github.com/coil-kt/coil
