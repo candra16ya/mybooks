@@ -22,7 +22,6 @@ import coil.request.ImageRequest
 import com.bacain.buku.data.BookItems
 import com.bacain.buku.data.BookItemsInfo
 import com.bacain.buku.ui.theme.Shapes
-import com.google.gson.Gson
 
 @ExperimentalFoundationApi
 @Composable
