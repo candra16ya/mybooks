@@ -9,14 +9,16 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.bacain.buku.components.LazyVerticalGridScreen
+import androidx.navigation.navArgument
+import com.bacain.buku.screens.HomeScreen
 import com.bacain.buku.components.SearchBar
-import com.bacain.buku.data.BookItems
-import com.bacain.buku.screen.DetailsBook
+import com.bacain.buku.screens.DetailsBookScreen
 import com.bacain.buku.ui.theme.BukuTheme
+import com.bacain.buku.util.BookScreen
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class)
@@ -29,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen()
+                    Navigation()
                 }
             }
         }
@@ -38,27 +40,21 @@ class MainActivity : ComponentActivity() {
 
 @ExperimentalFoundationApi
 @Composable
-fun MainScreen() {
+fun Navigation() {
 
     val navControllerr = rememberNavController()
-    val startDestination: String = "book_grid_item"
 
-    NavHost(navControllerr, startDestination) {
-        composable("book_grid_item") {
-            LazyVerticalGridScreen(navControllerr)
+    NavHost(navControllerr, BookScreen.HomeScreen.route) {
+        composable(BookScreen.HomeScreen.route) {
+            HomeScreen(navController = navControllerr)
             SearchBar()
         }
-        composable("details_book"){
-            DetailsBook(
-                bookItems = BookItems(
-                    "",
-                    "",
-                    "https://covers.openlibrary.org/b/id/12833521-M.jpg",
-                    "The Subtle Art of Not Giving a Fuck argues that individuals " +
-                    "should seek to find meaning through what they find to be important" +
-                    " and only engage in values that they can control. Values " +
-                    "(such as popularity) that are not under a person's control, " +
-                    "are, according to the book, 'bad values'."))
+        composable(BookScreen.DetailScreen.route +"/{bookItems.title}",
+            arguments = listOf(navArgument(name = "bookItems.title"){
+                type = NavType.StringType
+            })
+        ){ entry ->
+            DetailsBookScreen(navController = navControllerr,entry.arguments?.getString("bookItems.title") )
         }
 
     }

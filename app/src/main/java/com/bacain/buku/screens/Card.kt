@@ -1,13 +1,12 @@
-package com.bacain.buku.components
+package com.bacain.buku.screens
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.FilterQuality
@@ -20,12 +19,19 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.bacain.buku.data.BookItems
-import com.bacain.buku.data.BookItemsInfo
+import com.bacain.buku.data.BookRepository
 import com.bacain.buku.ui.theme.Shapes
+import com.bacain.buku.util.BookScreen
 
-@ExperimentalFoundationApi
 @Composable
-fun LazyVerticalGridScreen(navController: NavController, list: List<BookItems> = BookItemsInfo().bookInfo()) {
+fun HomeScreen(navController: NavController){
+
+        val book = BookRepository.getAllBook()
+        LazyVerticalGridScreen(navController = navController, bookList = book)
+}
+
+@Composable
+fun LazyVerticalGridScreen(navController: NavController, bookList: List<BookItems>) {
 
     val title = "My books"
 
@@ -44,21 +50,27 @@ fun LazyVerticalGridScreen(navController: NavController, list: List<BookItems> =
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ){
 
-        items(list.size){ index ->
-            GridItem(bookItems = list[index], navController)
+       items(items = bookList){
+           GridItem(bookItems = it){
+                   bookItemsTitle ->
 
-        }
+               navController.navigate(BookScreen.DetailScreen.route + "/$bookItemsTitle")
+           }
+       }
     }
 }
 
 @Composable
-fun GridItem(bookItems: BookItems, navController: NavController) {
+fun GridItem(bookItems: BookItems, onItemCLick: (String) -> Unit) {
+    val context = LocalContext.current
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(216.dp)
             .clickable {
-                navController.navigate("details_book")
+                Toast.makeText(context, bookItems.title, Toast.LENGTH_SHORT).show()
+                onItemCLick(bookItems.title)
             }
         ,
         backgroundColor = MaterialTheme.colors.onSurface,
@@ -103,6 +115,10 @@ fun GridItem(bookItems: BookItems, navController: NavController) {
         }
     }
 }
+
+//@Composable
+//fun GridItem(bookItems: BookItems, navController: NavController, onItemCLick: (String) -> Unit) {
+//}
 
 @Preview(showBackground = true)
 @Composable
