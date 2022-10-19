@@ -1,5 +1,8 @@
 package com.bacain.buku.data
 
+import com.bacain.buku.data.model.BookItems
+import com.bacain.buku.data.network.BookItemsInfo
+
 class BookRepository(){
     companion object{
         fun getAllBook(): List<BookItems>{

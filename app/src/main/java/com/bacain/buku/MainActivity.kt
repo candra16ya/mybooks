@@ -42,11 +42,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Navigation() {
 
-    val navControllerr = rememberNavController()
+    val navController = rememberNavController()
 
-    NavHost(navControllerr, BookScreen.HomeScreen.route) {
+    NavHost(navController, BookScreen.HomeScreen.route) {
         composable(BookScreen.HomeScreen.route) {
-            HomeScreen(navController = navControllerr)
+            HomeScreen(navController = navController)
             SearchBar()
         }
         composable(BookScreen.DetailScreen.route +"/{bookItems.title}",
@@ -54,7 +54,7 @@ fun Navigation() {
                 type = NavType.StringType
             })
         ){ entry ->
-            DetailsBookScreen(navController = navControllerr,entry.arguments?.getString("bookItems.title") )
+            DetailsBookScreen(navController = navController,entry.arguments?.getString("bookItems.title") )
         }
 
     }

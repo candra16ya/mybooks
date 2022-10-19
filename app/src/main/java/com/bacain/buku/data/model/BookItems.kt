@@ -1,4 +1,4 @@
-package com.bacain.buku.data
+package com.bacain.buku.data.model
 
 data class BookItems(
     val author: String,

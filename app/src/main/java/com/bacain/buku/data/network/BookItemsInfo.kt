@@ -1,4 +1,6 @@
-package com.bacain.buku.data
+package com.bacain.buku.data.network
+
+import com.bacain.buku.data.model.BookItems
 
 class BookItemsInfo {
     companion object{
@@ -8,7 +10,8 @@ class BookItemsInfo {
         private fun BookInfo(): MutableList<BookItems>{
 
             val list = mutableListOf<BookItems>()
-            list.add(BookItems(
+            list.add(
+                BookItems(
                 "Mark Manson",
                 "The Subtle Art of Not Giving a Fuck",
                 "https://covers.openlibrary.org/b/id/12833521-M.jpg",
@@ -17,8 +20,10 @@ class BookItemsInfo {
                         " and only engage in values that they can control. Values " +
                         "(such as popularity) that are not under a person's control, " +
                         "are, according to the book, 'bad values'."
-            ))
-            list.add(BookItems(
+            )
+            )
+            list.add(
+                BookItems(
                 "Colleen Hoover",
                 "It Starts with Us",
                 "https://covers.openlibrary.org/b/id/12941439-L.jpg",
@@ -27,8 +32,10 @@ class BookItemsInfo {
                         "a new chapter in her life. Soon after, she meets a boy, " +
                         "Ryle, and instantly falls for him. However, things get " +
                         "complicated when the first boy she fell for, Atlas, shows up."
-            ))
-            list.add(BookItems(
+            )
+            )
+            list.add(
+                BookItems(
                 "James Clear",
                 "Atomic Habits",
                 "https://covers.openlibrary.org/b/id/12886417-L.jpg",
@@ -46,8 +53,10 @@ class BookItemsInfo {
                         "unfortunately, kill you. That’s why it’s important to understand how habits " +
                         "are formed, so you can learn how to kick the bad habits, implement the healthy " +
                         "ones, and take back control of your life."
-            ))
-            list.add(BookItems(
+            )
+            )
+            list.add(
+                BookItems(
                 "Robert T. Kiyosaki, Sharon L. Lechter, and Tim Wheeler",
                 "RICH DAD, POOR DAD",
                 "https://covers.openlibrary.org/b/id/12483178-L.jpg",
@@ -55,8 +64,10 @@ class BookItemsInfo {
                         "fathers, one rich, one poor, to help you develop the " +
                         "mindset and financial knowledge you need to build a life " +
                         "of wealth and freedom."
-            ))
-            list.add(BookItems(
+            )
+            )
+            list.add(
+                BookItems(
                 "Napoleon Hill",
                 "The power of Positive thinking",
                 "https://covers.openlibrary.org/b/id/11348446-L.jpg",
@@ -65,8 +76,10 @@ class BookItemsInfo {
                         "believe in yourself, break the habit of worrying, and take " +
                         "control of your life by taking control of your thoughts and " +
                         "changing your attitude."
-            ))
-            list.add(BookItems(
+            )
+            )
+            list.add(
+                BookItems(
                 "Rick Riordan",
                 "The lightning thief",
                 "https://covers.openlibrary.org/b/id/7989100-L.jpg",
@@ -75,8 +88,10 @@ class BookItemsInfo {
                         "is Poseidon, the Greek god of the sea. Percy sets out to become" +
                         " a hero by undertaking a quest across the United States to find " +
                         "the entrance to the Underworld and stop a war between the gods."
-            ))
-            list.add(BookItems(
+            )
+            )
+            list.add(
+                BookItems(
                 "Stephen Kingn",
                 "It",
                 "https://covers.openlibrary.org/b/id/12670684-L.jpg",
@@ -85,8 +100,10 @@ class BookItemsInfo {
                         "the fears of its victims to disguise itself while hunting " +
                         "its prey. \"It\" primarily appears in the form of Pennywise " +
                         "the Dancing Clown to attract its preferred prey of young children."
-            ))
-            list.add(BookItems(
+            )
+            )
+            list.add(
+                BookItems(
                 "Jennette McCurdy",
                 "I'm Glad My Mom Died",
                 "https://covers.openlibrary.org/b/id/12900508-L.jpg",
@@ -95,7 +112,8 @@ class BookItemsInfo {
                         "as a former child actor—including eating disorders, " +
                         "addiction, and a complicated relationship with her overbearing " +
                         "mother—and how she retook control of her life."
-            ))
+            )
+            )
             return list
         }
     }

@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.bacain.buku.data.BookItems
+import com.bacain.buku.data.model.BookItems
 import com.bacain.buku.data.BookRepository
 import com.bacain.buku.ui.theme.Shapes
 import com.bacain.buku.util.BookScreen

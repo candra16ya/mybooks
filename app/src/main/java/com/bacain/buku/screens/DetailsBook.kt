@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -63,7 +64,7 @@ fun DetailsBookScreen(navController: NavController, books: String?) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 10.dp, start = 15.dp)
+                .padding(top = 10.dp, start = 15.dp, end = 15.dp)
         ) {
             Text(
                 text = synopsis,
@@ -72,12 +73,14 @@ fun DetailsBookScreen(navController: NavController, books: String?) {
                 color = MaterialTheme.colors.primaryVariant,
             )
 
+            Spacer(modifier = Modifier.height(5.dp))
+
             if (book != null) {
                 Text(
                     modifier = Modifier.align(Alignment.CenterHorizontally),
                     text = book.synopsis,
                     fontFamily = lexend,
-                    fontSize = 14.sp
+                    textAlign = TextAlign.Justify
                 )
             }
         }
