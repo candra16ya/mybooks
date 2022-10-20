@@ -5,8 +5,8 @@
 [Navigation](https://developer.android.com/jetpack/androidx/releases/navigation#declaring_dependencies)</br>
 
 <p align="center">
-  <img alt="Light" src="" width="20%">
+  <img alt="" src="" width="20%">
 &nbsp; &nbsp; &nbsp; &nbsp;
-  <img alt="Dark" src="" width="20%">
+  <img alt="" src="" width="20%">
 </p>
 
